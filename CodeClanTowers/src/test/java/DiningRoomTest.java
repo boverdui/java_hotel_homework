@@ -1,8 +1,11 @@
 import Hotel.Guest;
 import Hotel.Rooms.DiningRoom;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -50,14 +53,14 @@ public class DiningRoomTest {
     }
 
     @Test
-    public void checkRoomNotFull() {
-        assertFalse(diningroom.isFull());
-    }
-
-    @Test
     public void checkRoomFull() {
         diningroom.add(guest1);
         assertTrue(diningroom.isFull());
+    }
+
+    @Test
+    public void checkRoomNotFull() {
+        assertFalse(diningroom.isFull());
     }
 
     @Test

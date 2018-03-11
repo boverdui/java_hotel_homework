@@ -1,8 +1,11 @@
 import Hotel.Guest;
 import Hotel.Rooms.ConferenceRoom;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -50,13 +53,9 @@ public class ConferenceRoomTest {
     }
 
     @Test
-    public void hasName() {
-        assertEquals("Edinburgh", conferenceroom.getName());
-    }
-
-    @Test
-    public void hasRate() {
-        assertEquals(500.00, conferenceroom.getRate(), 0.01);
+    public void checkRoomFull() {
+        conferenceroom.add(guest1);
+        assertTrue(conferenceroom.isFull());
     }
 
     @Test
@@ -65,14 +64,18 @@ public class ConferenceRoomTest {
     }
 
     @Test
-    public void checkRoomFull() {
-        conferenceroom.add(guest1);
-        assertTrue(conferenceroom.isFull());
+    public void checkRoomVacant() {
+        assertTrue(conferenceroom.isVacant());
     }
 
     @Test
-    public void checkRoomVacant() {
-        assertTrue(conferenceroom.isVacant());
+    public void hasRate() {
+        assertEquals(500.00, conferenceroom.getRate(), 0.01);
+    }
+
+    @Test
+    public void hasName() {
+        assertEquals("Edinburgh", conferenceroom.getName());
     }
 
 }

@@ -1,12 +1,15 @@
 import Hotel.Guest;
 import Hotel.Rooms.Room;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 
 public class RoomTest {
 
@@ -51,14 +54,14 @@ public class RoomTest {
     }
 
     @Test
-    public void checkRoomNotFull() {
-        assertFalse(room.isFull());
-    }
-
-    @Test
     public void checkRoomFull() {
         room.add(guest1);
         assertTrue(room.isFull());
+    }
+
+    @Test
+    public void checkRoomNotFull() {
+        assertFalse(room.isFull());
     }
 
     @Test

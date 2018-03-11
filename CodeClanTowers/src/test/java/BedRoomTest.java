@@ -1,9 +1,12 @@
 import Hotel.Guest;
 import Hotel.Rooms.BedRoom;
 import Hotel.Rooms.Type;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -15,7 +18,7 @@ public class BedRoomTest {
 
     @Before
     public void before() {
-        bedroom = new BedRoom(1, 1, Type.SINGLE, 100.00);
+        bedroom = new BedRoom(1, 1, 100.00, Type.SINGLE);
         guest1 = new Guest("Stuart Hogg");
         guest2 = new Guest("Finn Russell");
     }
@@ -51,13 +54,9 @@ public class BedRoomTest {
     }
 
     @Test
-    public void hasType() {
-        assertEquals(Type.SINGLE, bedroom.getType());
-    }
-
-    @Test
-    public void hasRate() {
-        assertEquals(100.00, bedroom.getRate(), 0.01);
+    public void checkRoomFull() {
+        bedroom.add(guest1);
+        assertTrue(bedroom.isFull());
     }
 
     @Test
@@ -66,14 +65,18 @@ public class BedRoomTest {
     }
 
     @Test
-    public void checkRoomFull() {
-        bedroom.add(guest1);
-        assertTrue(bedroom.isFull());
+    public void checkRoomVacant() {
+        assertTrue(bedroom.isVacant());
     }
 
     @Test
-    public void checkRoomVacant() {
-        assertTrue(bedroom.isVacant());
+    public void hasRate() {
+        assertEquals(100.00, bedroom.getRate(), 0.01);
+    }
+
+    @Test
+    public void hasType() {
+        assertEquals(Type.SINGLE, bedroom.getType());
     }
 
 }

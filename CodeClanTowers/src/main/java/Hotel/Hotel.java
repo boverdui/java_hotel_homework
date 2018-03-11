@@ -34,6 +34,26 @@ public class Hotel {
         return this.bedrooms;
     }
 
+    public void checkInBedRoom(BedRoom bedroom, Guest guest) {
+        if(!bedroom.isFull()) {
+            bedroom.add(guest);
+        }
+    }
+
+    public void checkOutBedRoom(BedRoom bedroom, Guest guest) {
+        bedroom.remove(guest);
+    }
+
+    public ArrayList<BedRoom> getVacantBedRooms() {
+        ArrayList<BedRoom> vacantbedrooms = new ArrayList<BedRoom>();
+        for (BedRoom bedroom : bedrooms) {
+            if (bedroom.isVacant()) {
+                vacantbedrooms.add(bedroom);
+            }
+        }
+        return vacantbedrooms;
+    }
+
     public void addConferenceRoom(ConferenceRoom conferenceroom) {
         this.conferencerooms.add(conferenceroom);
     }
@@ -48,6 +68,16 @@ public class Hotel {
 
     public ArrayList<ConferenceRoom> getConferenceRooms() {
         return this.conferencerooms;
+    }
+
+    public void checkInConferenceRoom(ConferenceRoom conferenceroom, Guest guest) {
+        if(!conferenceroom.isFull()) {
+            conferenceroom.add(guest);
+        }
+    }
+
+    public void checkOutConferenceRoom(ConferenceRoom conferenceroom, Guest guest) {
+        conferenceroom.remove(guest);
     }
 
     public void addDiningRoom(DiningRoom diningroom) {
@@ -66,26 +96,6 @@ public class Hotel {
         return this.diningrooms;
     }
 
-    public void checkInBedRoom(BedRoom bedroom, Guest guest) {
-        if(!bedroom.isFull()) {
-            bedroom.add(guest);
-        }
-    }
-
-    public void checkOutBedRoom(BedRoom bedroom, Guest guest) {
-        bedroom.remove(guest);
-    }
-
-    public void checkInConferenceRoom(ConferenceRoom conferenceroom, Guest guest) {
-        if(!conferenceroom.isFull()) {
-            conferenceroom.add(guest);
-        }
-    }
-
-    public void checkOutConferenceRoom(ConferenceRoom conferenceroom, Guest guest) {
-        conferenceroom.remove(guest);
-    }
-
     public void checkInDiningRoom(DiningRoom diningroom, Guest guest) {
         if(!diningroom.isFull()) {
             diningroom.add(guest);
@@ -94,16 +104,6 @@ public class Hotel {
 
     public void checkOutDiningRoom(DiningRoom diningroom, Guest guest) {
         diningroom.remove(guest);
-    }
-
-    public ArrayList<BedRoom> getVacantBedRooms() {
-        ArrayList<BedRoom> vacantbedrooms = new ArrayList<BedRoom>();
-        for (BedRoom bedroom : bedrooms) {
-            if (bedroom.isVacant()) {
-                vacantbedrooms.add(bedroom);
-            }
-        }
-        return vacantbedrooms;
     }
 
 }
