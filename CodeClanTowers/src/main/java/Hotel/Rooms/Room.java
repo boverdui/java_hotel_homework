@@ -8,7 +8,7 @@ public abstract class Room {
 
     private int number;
     private int capacity;
-    ArrayList<Guest> guests;
+    private ArrayList<Guest> guests;
 
     public Room(int number, int capacity) {
         this.number = number;
