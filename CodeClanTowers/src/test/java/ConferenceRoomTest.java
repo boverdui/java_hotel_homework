@@ -64,11 +64,6 @@ public class ConferenceRoomTest {
     }
 
     @Test
-    public void checkRoomVacant() {
-        assertTrue(conferenceroom.isVacant());
-    }
-
-    @Test
     public void hasRate() {
         assertEquals(500.00, conferenceroom.getRate(), 0.01);
     }

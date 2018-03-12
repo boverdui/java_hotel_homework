@@ -1,5 +1,7 @@
 package Hotel.Rooms;
 
+import java.util.ArrayList;
+
 public class BedRoom extends Room {
 
     private double rate;
@@ -9,6 +11,7 @@ public class BedRoom extends Room {
         super(number, capacity);
         this.rate = rate;
         this.type = type;
+        this.guests = new ArrayList<>();
     }
 
     public double getRate() {
@@ -17,6 +20,10 @@ public class BedRoom extends Room {
 
     public Type getType() {
         return this.type;
+    }
+
+    public boolean isVacant() {
+        return this.guests.size() == 0;
     }
 
 }

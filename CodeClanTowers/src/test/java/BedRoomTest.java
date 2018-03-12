@@ -65,8 +65,14 @@ public class BedRoomTest {
     }
 
     @Test
-    public void checkRoomVacant() {
+    public void checkBedRoomVacant() {
         assertTrue(bedroom.isVacant());
+    }
+
+    @Test
+    public void checkBedRoomNotVacant() {
+        bedroom.add(guest1);
+        assertFalse(bedroom.isVacant());
     }
 
     @Test

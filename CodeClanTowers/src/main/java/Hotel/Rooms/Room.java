@@ -8,7 +8,7 @@ public class Room {
 
     private int number;
     private int capacity;
-    private ArrayList<Guest> guests;
+    ArrayList<Guest> guests;
 
     public Room(int number, int capacity) {
         this.number = number;
@@ -42,10 +42,6 @@ public class Room {
 
     public boolean isFull() {
         return this.guests.size() >= this.capacity;
-    }
-
-    public boolean isVacant() {
-        return this.guests.size() == 0;
     }
 
 }

@@ -64,9 +64,4 @@ public class RoomTest {
         assertFalse(room.isFull());
     }
 
-    @Test
-    public void checkRoomVacant() {
-        assertTrue(room.isVacant());
-    }
-
 }
